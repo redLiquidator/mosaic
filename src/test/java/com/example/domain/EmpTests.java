@@ -1,6 +1,7 @@
 package com.example.domain;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -24,6 +25,7 @@ public class EmpTests {
 		Emp e = new Emp();
 		e.setEmpno(1000);
 		e.setEname("홍길동");
+		e.setHiredate(new Date());
 		
 		System.out.println(e);
 	}
