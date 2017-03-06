@@ -11,12 +11,15 @@ import com.example.util.Pagination;
 @Mapper
 public interface CityMapper {
 
+	/*
+	 * Select
+	 */
 	@Select("select count(*) from city")
 	int selectTotalCount();
 	
 	@Select("select * from city")
 	List<City> selectAll();
-	List<City> selectAllWithCity();
+	List<City> selectAllWithCountry();
 	
 	@Select({
 		"select *                ",
@@ -26,6 +29,23 @@ public interface CityMapper {
 		" fetch next #{itemsPerPage} rows only"
 	})
 	List<City> selectPage(Pagination paging);
-	List<City> selectPageWithCity();
+	List<City> selectPageWithCountry(Pagination paging);
+	
+	@Select("select * from city where id=#{id}")
+	City selectById(int id);
+	City selectByIdWithCountry(int id);
+	
+	/*
+	 * Insert
+	 */
+	
+	/*
+	 * Update
+	 */
+	
+	/*
+	 * Delete
+	 */
+	
 	
 }
