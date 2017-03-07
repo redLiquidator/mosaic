@@ -74,8 +74,84 @@ offset 40 rows
 			c2.population		as city_population
 	  from country c1 left outer join city c2
 	    on c1.code = c2.country_code
-	 where c1.code = 'KOR'	 
+	 where c1.code = 'KOR';	 
 	 
+	 
+ select count(*)
+   from city
+  where country_code = 'KOR';
+  
+  --
+  -- selectPage
+  --
+  select *
+    from city
+--    where country_code = 'KOR'
+  order by id 
+  offset 2 rows
+   fetch next 3 rows only;
+  
+  --
+  -- selectPageWithCountry
+  -- 
+  select *
+    from city c1 left outer join country c2
+	  on c1.country_code = c2.code
+--    where c1.country_code = 'KOR'
+  order by id 
+  offset 2 rows
+   fetch next 3 rows only;
+	   
+--
+-- CountryMapper.selectPage 
+--
+select *
+  from country
+ order by code  
+offset 2 rows
+ fetch next 3 rows only;
+ 
+select *
+  from city
+ where country_code = 'AGO';
+ 
+select *
+  from city
+ where country_code = 'AIA';
+ 
+select *
+  from city
+ where country_code = 'ALB'; 
+ 
+ 
+    
+	   
+--
+-- CountryMapper.selectPageWithCity 
+--
+select *
+  from country c1 left outer join city c2
+    on c1.code = c2.country_code
+ order by c1.code  
+offset 2 rows
+ fetch next 3 rows only;		   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	 
 	 
 	 
