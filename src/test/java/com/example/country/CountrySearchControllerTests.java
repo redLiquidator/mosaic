@@ -36,13 +36,20 @@ public class CountrySearchControllerTests {
 	}
 	
 	@Test
-	public void test02_getItem() {
+	public void test02_getPage() {
+		String html = rest.getForObject("/country/page/13", String.class);
+		System.out.println(html);
+	}
+	
+	
+	@Test
+	public void test03_getItem() {
 		String html = rest.getForObject("/country/item/KOR", String.class);
 		System.out.println(html);
 	}
 	
 	@Test
-	public void test02_getItem_NotFountRuntimeException() {
+	public void test03_getItem_NotFountRuntimeException() {
 		String html = rest.getForObject("/country/item/xxx", String.class);
 		System.out.println(html);
 	}
