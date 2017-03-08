@@ -123,6 +123,10 @@ select *
   from city
  where country_code = 'ALB'; 
  
+select code 
+  from country
+offset 0 rows
+ fetch next 10 rows only;  
  
     
 	   

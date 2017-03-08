@@ -14,7 +14,7 @@ public interface CountryMapper {
 	@Select("select count(*) from country")
 	int selectTotalCount();
 	
-	@Select("select * from country")
+	@Select("select * from country where continent='Asia'")
 	List<Country> selectAll();
 	List<Country> selectAllWithCity();
 	
