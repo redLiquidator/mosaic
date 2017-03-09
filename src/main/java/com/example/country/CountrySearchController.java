@@ -51,7 +51,7 @@ public class CountrySearchController {
 		log.info("getItem(" + code + ")");
 		
 		try {
-			Country c = countrySearchService.getCountryByCode(code);
+			Country c = countrySearchService.getCountryByCode(code, true);
 			model.addAttribute("country", c);
 		} catch (NotFoundRuntimeException e) {
 			model.addAttribute("error", e.getMessage());

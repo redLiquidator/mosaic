@@ -21,6 +21,14 @@
 ${error}<br>
 
 ${country.code} ${country.name} ${country.population}<br>
+<hr>
+<hr>
+<ol>
+<c:forEach var="city" items="${country.citys}">
+	<li>${city.id}, ${city.name}, ${city.population}</li>
+</c:forEach>
+</ol>
+${country}
 
 </body>
 </html>

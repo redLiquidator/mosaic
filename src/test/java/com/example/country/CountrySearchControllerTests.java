@@ -37,7 +37,7 @@ public class CountrySearchControllerTests {
 	
 	@Test
 	public void test02_getPage() {
-		String html = rest.getForObject("/country/page/13", String.class);
+		String html = rest.getForObject("/country/page/5", String.class);
 		System.out.println(html);
 	}
 	

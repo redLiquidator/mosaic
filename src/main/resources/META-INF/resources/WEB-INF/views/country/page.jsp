@@ -16,6 +16,13 @@
 <script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <!-- 4. bootstrap.js -->
 <script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
+<!-- code_assist -->
+<c:if test="false">
+	<link rel="stylesheet" href="../code_assist/animate.css">
+	<link rel="stylesheet" href="../code_assist/bootstrap.css">
+</c:if>
+
 </head>
 <body>
 <c:set var="countrys" 	value="${page.countrys}"/>
@@ -23,11 +30,13 @@
 <h1>Country Page List pageNo = ${paging.pageNo}</h1>
 
 <c:forEach var="c" items="${countrys}" varStatus="status">
-	<b>${status.index}</b> ${c.code} ${c.name} ${c.population} <br>
+	<b>${status.index}</b> ${c.code} <a href="/country/item/${c.code}">${c.name}</a> ${c.population} <br>
 </c:forEach>
 
 <hr>
+<button onclick="displayBox(event)" class="btn btn-danger animated bounce">
 ${paging}
+</button>
 <hr>
 <a href="/country/page/${paging.firstPage - 1}">Prev</a>
 <c:forEach var="i" begin="${paging.firstPage}" end="${paging.lastPage}">
@@ -35,6 +44,11 @@ ${paging}
 </c:forEach>
 <a href="/country/page/${paging.lastPage + 1}">Next</a>
 
+<script type="text/javascript">
+	function displayBox(event) {
+		$('.btn').toggleClass('btn-danger');
+	}
+</script>
 
 </body>
 </html>
