@@ -25,6 +25,13 @@
 
 </head>
 <body>
+<h1>City List</h1>
+<ol>
+<c:forEach var="city" items="${citys}">
+	<li>${city.id}, ${city.name}, ${city.population}, ${city.country.name}</li>
+</c:forEach>
+</ol>
+
 
 </body>
 </html>

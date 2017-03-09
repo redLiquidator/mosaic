@@ -33,7 +33,7 @@ public class CitySearchControllerTests {
 	
 	@Test
 	public void test02_getPage() {
-		String html = rest.getForObject("/city/page/1", String.class);
+		String html = rest.getForObject("/city/page/10", String.class);
 		System.out.println(html);
 	}
 	
