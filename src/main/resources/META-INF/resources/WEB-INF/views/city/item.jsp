@@ -25,6 +25,11 @@
 
 </head>
 <body>
-
+<h1>City Detail Info</h1>
+${city}
+<hr>
+${city.country}
+<hr>
+<a href="/city/page/${param.pageNo}">이전 Page List로....</a>
 </body>
 </html>

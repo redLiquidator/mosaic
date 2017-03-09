@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.city.service.CitySearchService;
 import com.example.domain.City;
+import com.example.exception.NotFoundRuntimeException;
 
 @Controller
 @RequestMapping("/city")
@@ -45,6 +46,13 @@ public class CitySearchController {
 	
 	@GetMapping("/item/{id}")
 	public String getItemById(@PathVariable int id, Model model) {
+		log.info("getItem("+ id + ")");
+		try {
+			City city = citySearchService.getCityById(id, true);
+			model.addAttribute("city", city);
+		} catch (NotFoundRuntimeException e) {
+			model.addAttribute("error", e.getMessage());
+		}
 		
 		return "city/item";
 	}

@@ -28,7 +28,7 @@
 <h1>City Page pageNo=${page.paging.pageNo}</h1>
 <ol class="list-group">
 	<c:forEach var="city" items="${page.citys}">
-		<li class="list-group-item-info animated zoomIn">${city.id}, <a href="/city/item/${city.id}">${city.name}</a>, ${city.population} ${city.countryCode}</li>
+		<li class="list-group-item-info animated zoomIn">${city.id}, <a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}">${city.name}</a>, ${city.population} ${city.countryCode}</li>
 	</c:forEach>
 </ol>
 <hr class="animated bounce">
