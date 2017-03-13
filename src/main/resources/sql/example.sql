@@ -1,4 +1,6 @@
 
+select * from city where country_code = 'KOR';
+
 select max(id) from city;
 
 drop sequence city_id_seq;

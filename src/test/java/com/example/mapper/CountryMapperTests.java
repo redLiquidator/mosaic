@@ -67,22 +67,40 @@ public class CountryMapperTests {
 	@Test
 	public void test03_selectByCode() {
 		Country country = mapper.selectByCode("xxx");
-		if (country == null) 
-			throw new NotFoundRuntimeException("country가 없습니다.");
 		
-		System.out.println(country);
+		System.out.println("country=" + country);
 	}
 	
 	@Test
 	public void test03_selectByCodeWithCity() {
 		Country country = mapper.selectByCodeWithCity("KOR");
-		if (country == null) 
-			throw new NotFoundRuntimeException("country가 없습니다.");
 		
-		System.out.println(country);
+		System.out.println("country=" + country);
 	}
 	
-	
+	@Test
+	public void test04_insert() {
+		Country country = new Country();
+		country.setCode("xxx");
+		country.setName("java");
+		
+		Country c = mapper.selectByCode(country.getCode());
+		if (c != null) {
+			System.out.println("해당 나라 Code는 존재하는 값입니다.");
+			return;
+		}
+		
+		int cnt = mapper.insert(country);
+		System.out.println(mapper.selectByCode(country.getCode()));
+	}
+
+	@Test
+	public void test06_deleteByCode() {
+		String code = "xxx";
+		int cnt = mapper.deleteByCode(code);
+		System.out.println("cnt=" + cnt);
+		System.out.println("country=" + mapper.selectByCode(code));
+	}
 
 
 }
