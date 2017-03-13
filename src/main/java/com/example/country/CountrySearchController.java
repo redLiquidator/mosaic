@@ -50,12 +50,8 @@ public class CountrySearchController {
 	public String getItem(@PathVariable String code, Model model) {
 		log.info("getItem(" + code + ")");
 		
-		try {
-			Country c = countrySearchService.getCountryByCode(code, true);
-			model.addAttribute("country", c);
-		} catch (NotFoundRuntimeException e) {
-			model.addAttribute("error", e.getMessage());
-		}
+		Country c = countrySearchService.getCountryByCode(code, true);
+		model.addAttribute("country", c);
 		
 		return "country/item";
 	}

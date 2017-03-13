@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -38,14 +39,17 @@ public interface CityMapper {
 	/*
 	 * Insert
 	 */
-	
+	int insert(City city);
 	/*
 	 * Update
 	 */
+	int updateById(City city);
 	
 	/*
 	 * Delete
 	 */
+	@Delete("delete from city where id=#{id}")
+	int deleteById(int id);
 	
 	
 }

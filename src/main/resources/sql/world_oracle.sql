@@ -13,23 +13,29 @@ drop table country;
 drop table country_language;
 
 /*
+ * city_id_seq sequence
+ */
+drop sequence city_id_seq;
+create sequence city_id_seq start with 4080;
+
+/*
  * Country
  */
 create table country (
 	code 			char(3 char),						
-	name 			char(52 char),						
-	continent		char(20 char)	default 'Asia',		
+	name 			char(52 char)	not null,						
+	continent		char(20 char),		
 	region			char(26 char),						
-	surface_area	number(10,2)	default '0.00',		
+	surface_area	number(10,2),		
 	indep_year		number(6),							
-	population		number(11)		default 0,			
+	population		number(11),			
 	life_expectancy	number(3,1),						
 	gnp				number(10,2),
 	gnp_old			number(10,2),
 	local_name		char(45 char),						
 	government_form	char(45 char),
-	head_of_state	char(60 char)	default null,
-	capital			number(11)		default null,
+	head_of_state	char(60 char),
+	capital			number(11),
 	code2			char(2  char),
 	constraint ck_continent check (continent in ('Asia','Europe','North America','Africa','Oceania','Antarctica','South America')),
 	constraint pk_country primary key (code)
@@ -39,13 +45,13 @@ create table country (
  * City
  */
 create table city (
-	id				number(11)		not null,
-	name			char(35 char),
+	id				number(11),
+	name			char(35 char) not null,
 	country_code 	char(3 char),
 	district		char(20 char),
-	population		number(11)		default 0,
+	population		number(11),
 	constraint pk_city primary key (id),
-	constraint fk_country foreign key (country_code) references country(code) 
+	constraint fk_country foreign key (country_code) references country(code) on delete cascade 
 );
 
 /*

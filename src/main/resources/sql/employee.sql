@@ -15,24 +15,30 @@ drop table bonus;
 drop table salgrade;
 
 --
+-- emp_empno_seq sequence
+--
+drop sequence emp_empno_seq;
+create sequence emp_empno_seq start with 8000;
+
+--
 -- create table
 --
 
 create table dept (
-	deptno	number(2) constraint pk_dept primary key,
-	dname	varchar2(14 char),
+	deptno	number(3) constraint pk_dept primary key,
+	dname	varchar2(14 char) not null,
 	loc		varchar2(13 char) 
 );
 
 create table emp (
 	empno		number(4) constraint pk_emp primary key,
-	ename		varchar2(10 char),
+	ename		varchar2(10 char) not null,
 	job			varchar2(9 char),
 	mgr			number(4),
 	hiredate	date,
 	sal			number(7,2),
 	comm		number(7,2),
-	deptno		number(2) constraint fk_deptno references dept(deptno)
+	deptno		number(3) constraint fk_deptno references dept(deptno) on delete set null
 );
 
 create table bonus (

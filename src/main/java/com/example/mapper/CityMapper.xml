@@ -107,5 +107,34 @@
 	 where c1.id = #{id}
 </select>
 
+<insert id="insert">
+	<selectKey keyProperty="id" keyColumn="id" resultType="int" order="BEFORE">
+		select city_id_seq.nextval from dual
+	</selectKey>
+	insert into city
+	(
+		id,
+		name,
+		country_code,
+		district,
+		population
+	)
+	values
+	(
+		#{id},
+		#{name},
+		#{countryCode},
+		#{district},
+		#{population}
+	)
+</insert>
+
+<update id="updateById">
+
+</update>
+
+
+
+
 
 </mapper>
