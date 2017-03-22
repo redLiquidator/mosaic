@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.country.service.CountrySearchService;
 import com.example.domain.Country;
-import com.example.exception.NotFoundRuntimeException;
 
 @Controller
 @RequestMapping("/country")

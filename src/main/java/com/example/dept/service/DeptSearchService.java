@@ -3,11 +3,11 @@ package com.example.dept.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import com.example.domain.Dept;
 import com.example.mapper.DeptMapper;
-
+@Service
 public class DeptSearchService {
 
 	@Autowired

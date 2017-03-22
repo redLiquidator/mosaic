@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Emp {
 
-	private int empno;
+	private Integer empno;
 	private String ename;
 	private String job;
 	private Integer mgr;
@@ -46,11 +46,11 @@ public class Emp {
 		return str;
 	}
 
-	public int getEmpno() {
+	public Integer getEmpno() {
 		return empno;
 	}
 
-	public void setEmpno(int empno) {
+	public void setEmpno(Integer empno) {
 		this.empno = empno;
 	}
 

@@ -6,7 +6,7 @@
 <id property="deptno" column="dept_deptno"/>
 <result property="dname" column="dept_dname"/>
 <result property="loc" column="dept_loc"/>
-<association property="emp" javaType="com.example.domain.Emp">
+<collection property="emp" javaType="com.example.domain.Emp">
 <id property= "empno" column="emp_empno"/>
 <result property="ename" column="emp_ename"/>
 <result property="job" column="emp_job"/>
@@ -15,9 +15,9 @@
 <result property="sal" column="emp_sal"/>
 <result property="com" column="emp_com"/>
 <result property="deptno" column="emp_deptno"/>
-</association>
+</collection>
 </resultMap>
-<select id="selectAllWithDept" resultMap="deptWithEmp">
+<select id="selectAllWithEmp" resultMap="deptWithEmp">
 
 
 
@@ -30,7 +30,6 @@ e.job as emp_job,
 e.mgr as emp_mgr,
 e.hiredate as emp_hiredate,
 e.sal as dept_sal,
-e.com as dept_com,
 e.deptno as dept_deptno
 from dept d left outer join emp e 
 on d.deptno=e.deptno

@@ -7,9 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>item.jsp</title>
+<title>list.jsp</title>
 
-Code Assist 
+<!-- Code Assist -->
 <c:if test="false">
 	<link rel="stylesheet" href="../code_assist/animate.css">
 	<link rel="stylesheet" href="../code_assist/bootstrap.css">
@@ -17,11 +17,13 @@ Code Assist
 
 </head>
 <body>
-<h1>City Detail Info</h1>
-${city}
-<hr>
-${city.country}
-<hr>
-<a href="/city/page/${param.pageNo}">이전 Page List로....</a>
+<h1>Dept List</h1>
+<!-- <ol> -->
+<%-- <c:forEach var="dept" items="${list}"> --%>
+<%-- 	<li>${dept.deptno}, ${dept.dname}, ${dept.loc}, ${dept.emp.empno}</li> --%>
+<%-- </c:forEach> --%>
+<!-- </ol> -->
+
+
 </body>
 </html>

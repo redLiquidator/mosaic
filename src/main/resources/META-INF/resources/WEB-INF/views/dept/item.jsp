@@ -7,9 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>item.jsp</title>
+<title>dept.jsp</title>
 
-Code Assist 
+<!-- Code Assist -->
 <c:if test="false">
 	<link rel="stylesheet" href="../code_assist/animate.css">
 	<link rel="stylesheet" href="../code_assist/bootstrap.css">
@@ -17,11 +17,11 @@ Code Assist
 
 </head>
 <body>
-<h1>City Detail Info</h1>
-${city}
+<h1>Dept Detail Info</h1>
+${dept}
 <hr>
-${city.country}
+${dept.dname}
 <hr>
-<a href="/city/page/${param.pageNo}">이전 Page List로....</a>
+<a href="/dept/page/${param.pageNo}">이전 Page List로....</a>
 </body>
 </html>

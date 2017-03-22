@@ -86,7 +86,7 @@ public class CityMapperTests {
 	
 	@Test
 	public void test03_selectByIdWithCountry() {
-		City city = cityMapper.selectByIdWithCountry(10);
+		City city = cityMapper.selectByIdWithCountry(4040);
 		
 		if (city == null) {
 			throw new NotFoundRuntimeException("City 정보가 없습니다");
@@ -98,7 +98,7 @@ public class CityMapperTests {
 	@Test
 	public void test04_insert() {
 		City city = new City();
-		city.setName("xxx");
+		city.setName("database");
 		city.setCountryCode("KOR");
 		
 		Country country = countryMapper.selectByCode(city.getCountryCode());
@@ -113,6 +113,33 @@ public class CityMapperTests {
 		
 	}
 
+	
+	@Test
+	public void test05_updateById(){
+		City city = new City();
+		city.setId(4040);
+		city.setName("html");
+		city.setCountryCode("KOR");
+		
+		Country country = countryMapper.selectByCode(city.getCountryCode());
+		
+		if (country == null) {
+			System.out.println("error = " + "해당 Country Code가 없습니다.");
+			return;
+		}
+		
+		int cnt = cityMapper.updateById(city);
+		System.out.println(cityMapper.selectById(city.getId()));
+		
+	}
+	
+	@Test
+	public void test05_deleteById(){
+		int id=4000;
+		int rtn=cityMapper.deleteById(id);
+		System.out.println("rtn"+rtn);
+	}
+	
 }
 
 

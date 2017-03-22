@@ -7,9 +7,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>item.jsp</title>
+<title>registerSuccess.jsp</title>
+<!-- 1. animate -->
+<link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
+<!-- 2. bootstrap -->
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
+<!-- 3. jquery -->
+<script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<!-- 4. bootstrap.js -->
+<script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 
-Code Assist 
+<!-- Code Assist -->
 <c:if test="false">
 	<link rel="stylesheet" href="../code_assist/animate.css">
 	<link rel="stylesheet" href="../code_assist/bootstrap.css">
@@ -17,11 +25,7 @@ Code Assist
 
 </head>
 <body>
-<h1>City Detail Info</h1>
-${city}
-<hr>
-${city.country}
-<hr>
-<a href="/city/page/${param.pageNo}">이전 Page List로....</a>
+<h1>city 등록 성공입니다.</h1>
+city : ${city}
 </body>
 </html>

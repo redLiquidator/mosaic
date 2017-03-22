@@ -1,4 +1,4 @@
-package com.example.city.service;
+package com.example.country.service;
 
 import java.util.List;
 import java.util.Map;
@@ -14,30 +14,31 @@ import org.springframework.validation.Validator;
 
 import com.example.domain.City;
 import com.example.form.CityForm;
+import com.example.form.CountryForm;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CityRegisterServiceTests {
+public class CountryRegisterServiceTests {
 	
 	@Autowired
-	CitySearchService citySearchService;
+	CountrySearchService countrySearchService;
 	
 	@Autowired
-	CityRegisterService cityRegisterService;
+	CountryRegisterService countryRegisterService;
 	
 	@Autowired
 	Validator validator;
 	
 	
 	@Test
-	public void test00_confirmCitySearchService() {
-		System.out.println("CitySearchService=" + citySearchService);
+	public void test00_confirmCountrySearchService() {
+		System.out.println("countrySearchService=" + countrySearchService);
 		
 	}
 	
 	@Test
 	public void test00_confirmCityRegisterService() {
-		System.out.println("CityRegisterService=" + cityRegisterService);
+		System.out.println("countryRegisterService=" + countryRegisterService);
 		
 	}
 
@@ -48,23 +49,23 @@ public class CityRegisterServiceTests {
 	}
 	@Test
 	public void test01_register(){
-		CityForm cityForm=new CityForm();
-		BindingResult errors =new BeanPropertyBindingResult(cityForm, "cityForm");
+		CountryForm countryForm=new CountryForm();
+		countryForm.setCode("xyz");
+		countryForm.setName("java");
 		
-		cityForm.setName("xxx");
-		cityForm.setCountryCode("XYZZ");
-		validator.validate(cityForm, errors);
+		BindingResult errors=new BeanPropertyBindingResult(countryForm, "countryForm");
+		validator.validate(countryForm, errors);
 		if(errors.hasErrors()){
-			System.out.println("errors"+errors);
+			System.out.println(errors);
 			return;
 		}
-		cityRegisterService.register(cityForm,errors);
+		
+		countryRegisterService.register(countryForm,errors);
 		if(errors.hasErrors()){
-			System.out.println("errors"+errors);
+			System.out.println(errors);
 			return;
 		}
-		System.out.println("city"+citySearchService.getCityById(cityForm.getId()));
-		
+		System.out.println ("country="+countrySearchService.getCountryByCode(countryForm.getCode()));
 	}
 	
 	

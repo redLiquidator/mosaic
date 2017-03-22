@@ -26,7 +26,7 @@
 <result property="population" column="city_population"/>
 </collection>
 </resultMap>
-<select id="selectAllWithCity" resultMap="countryWithCity">
+<select id="selectAllWithCity" resultMap="moleculeWithCity">
 
 select c1.code as country_code,
 	   c1.name as country_name,
@@ -55,8 +55,10 @@ where c1.code='KOR'
 
 </select>
 <resultMap type="com.example.domain.Country" id="countryWithCity2">
-	<collection property="cities" column="{a=COUNTRY_CODE}"  select="selectCitiesByCode"/>
+	<collection property="cities" column="{a=COUNTRY_CODE}"  select="selectCitiesByFormula"/>
 </resultMap>
+
+
 <select id="selectCitiesByCode" resultType="com.example.domain.City">
 select *
 from city

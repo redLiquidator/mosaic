@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.MoleculeMapper">
+
+<resultMap type="com.example.domain.Molecule" id="moleculeWithMass">
+	<id property="name" column="name"/>
+		<result property="name" column="country_name"/>
+		<result property="chemicalFormula" column="chemical_formula"/>
+		<result property="density" column="density"/>
+		<result property="averageMeltingPoint" column="average_melting_point"/>
+		<result property="solubilityInWater" column="solubility_in_water"/>
+		<result property="acidity" column="acidity"/>
+		<result property="hazardStatements" column="hazard_statements"/>
+		<result property="note" column="note"/>
+		<association property="mass" javaType="com.example.domain.Mass">
+			<id property="id" column="city_id"/>
+			<result property="chemicalFormula" column="chemical_formula"/>
+			<result property="molarMass" column="molar_mass"/>
+		</association>
+	</resultMap>
+	
+<select id="selectAllWithMass" resultMap="moleculeWithMass">
+	
+	select mo.name as name,
+	       mo.chemical_formula as chemical_formula,
+	       mo.density as density,
+	       mo.average_melting_point as average_melting_point,
+	       mo.acidity as acidity,
+	       mo.hazard_statements as hazard_statements,
+		   mo.note as note,
+		   ma.chemical_formula as chemical_formula,
+		   ma.molar_mass as molar_mass
+
+	from molecule mo left outer join mass ma
+	on mo.chemical_formula=ma.chemical_formula
+	where mo.name='acetone'
+	
+</select>
+
+<resultMap type="com.example.domain.Molecule" id="moleculeWithMass2">
+		<collection property="masses" column="{a=chemical_formula}"  select="selectMassesByFormula"/>
+</resultMap>
+
+
+<select id="selectMassesByFormula" resultType="com.example.domain.Mass">
+	select *
+	from mass
+	where chemical_formula=#{a}
+</select>
+	
+	
+<select  id="selectPageWithMass" resultMap="moleculeWithMass2">
+	select mo.*,mo.name as name 
+	  from molecule mo
+	offset #{firstItem}-1 rows
+	 fetch next #{itemsPerPage} rows only
+</select>
+	
+<select id="selectByFormulaWithMass" resultMap="moleculeWithMass">
+   select  mo.name as name,
+	       mo.chemical_formula as chemical_formula,
+	       mo.density as density,
+	       mo.average_melting_point as average_melting_point,
+	       mo.acidity as acidity,
+	       mo.hazard_statements as hazard_statements,
+		   mo.note as note,
+		   ma.chemical_formula as chemical_formula,
+		   ma.molar_mass as molar_mass
+	  from country mo left outer join city mass ma
+	    on mo.chemical_formula = ma.chemical_formula
+	 where mo.name = #{name} 
+
+</select>
+</mapper>
