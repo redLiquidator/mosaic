@@ -26,7 +26,7 @@
 <result property="population" column="city_population"/>
 </collection>
 </resultMap>
-<select id="selectAllWithCity" resultMap="moleculeWithCity">
+<select id="selectAllWithCity" resultMap="countryWithCity">
 
 select c1.code as country_code,
 	   c1.name as country_name,

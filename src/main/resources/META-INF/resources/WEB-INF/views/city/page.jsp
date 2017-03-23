@@ -21,7 +21,13 @@
 <a href="/city/register" class="btn btn-primary">City 등록</a>
 <ol class="list-group">
 	<c:forEach var="city" items="${page.citys}">
-		<li class="list-group-item-info animated zoomIn">${city.id}, <a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}">${city.name}</a>, ${city.population} ${city.countryCode}</li>
+		<li class="list-group-item-info animated zoomIn">${city.id}, 
+		<a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}">${city.name}</a>, 
+		${city.population} 
+		${city.countryCode}
+		<a href="/city/modify/${city.id}">수정</a>
+		<a href="/city/unregister/${city.id}">삭제</a>
+				</li>
 	</c:forEach>
 </ol>
 <hr class="animated bounce">

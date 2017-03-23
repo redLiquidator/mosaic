@@ -66,7 +66,7 @@ public class CountryMapperTests {
 	
 	@Test
 	public void test03_selectByCode() {
-		Country country = mapper.selectByCode("xxx");
+		Country country = mapper.selectByCode("KOR");
 		
 		System.out.println("country=" + country);
 	}

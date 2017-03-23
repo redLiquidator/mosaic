@@ -1,5 +1,8 @@
 package com.example.domain;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Molecule {
 	
 	private String name; 
@@ -9,6 +12,31 @@ public class Molecule {
 	private Double acidity;
 	private String hazardStatements;
 	private String note;
+	private Double mass;
+	
+	
+	public Double getMass() {
+		return mass;
+	}
+
+	public void setMass(Double mass) {
+		this.mass = mass;
+	}
+
+	@Override
+	public String toString() {
+		String str= null;
+		
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			str = mapper.writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return str;
+	}
+	
 	public String getName() {
 		return name;
 	}

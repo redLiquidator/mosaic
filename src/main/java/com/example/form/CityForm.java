@@ -9,6 +9,14 @@ import javax.validation.constraints.Size;
 import com.example.domain.City;
 
 public class CityForm extends City{
+	
+	public void setCity(City city){
+		super.setId(city.getId());
+		super.setName(city.getName());
+		super.setCountryCode(city.getCountryCode());
+		super.setDistrict(city.getDistrict());
+		super.setPopulation(city.getPopulation());	
+	}
 
 	@NotNull
 	@Size(max=35)

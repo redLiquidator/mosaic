@@ -116,9 +116,9 @@ public class CityMapperTests {
 	
 	@Test
 	public void test05_updateById(){
-		City city = new City();
+		City city = cityMapper.selectById(2121);
 		city.setId(4040);
-		city.setName("html");
+		city.setName("html2");
 		city.setCountryCode("KOR");
 		
 		Country country = countryMapper.selectByCode(city.getCountryCode());

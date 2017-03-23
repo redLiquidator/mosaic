@@ -33,9 +33,9 @@ public interface MoleculeMapper {
 	List<Molecule> selectPage(Pagination paging);
 	List<Molecule> selectPageWithMass(Pagination paging);
 	
-	@Select("select * from molecule where chemicalFormula=#{chemicalFormula}")
-	Molecule selectByFormula(int chemicalFormula);
-	Molecule selectByFormulaWithMass(int chemicalFormula);
+	@Select("select * from molecule where chemical_formula=#{chemicalFormula}")
+	Molecule selectByFormula(String chemicalFormula);
+	Molecule selectByFormulaWithMass(String chemicalFormula);
 	
 	/*
 	 * Insert
@@ -49,8 +49,8 @@ public interface MoleculeMapper {
 	/*
 	 * Delete
 	 */
-	@Delete("delete from molecule where name=#{name}")
-	int deleteByName(int name);
+	@Delete("delete from molecule where chemical_formula=#{chemicalFormula}")
+	int deleteByFormula(String chemicalFormula);
 	
 	
 }

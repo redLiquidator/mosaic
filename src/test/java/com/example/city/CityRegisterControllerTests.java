@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 public class CityRegisterControllerTests {
 	
-	@GetM
+
 	
 	
 	
