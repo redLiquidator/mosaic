@@ -18,24 +18,17 @@
 </head>
 <body>
 <h1>City List1</h1>
-
-<ol>
-<c:forEach var="molecule" items="${citys}">
-	<li>${molecule.id}</li>
-</c:forEach>
-</ol>
 <ol>
 <c:forEach var="molecule" items="${molecules}">
 	<li>${molecule.name}</li>
 </c:forEach>
 </ol>
 
-<!-- <ol> -->
-<%-- <c:forEach var="city" items="${citys}"> --%>
-<%-- 	<li>${city.id} ${city.name}, ${city.population}, ${city.country.name}</li> --%>
-<%-- </c:forEach> --%>
-<!-- </ol> -->
-
+<ol>
+<c:forEach var="city" items="${citys}">
+	<li>${city.id} ${city.name}, ${city.population}, ${city.country.name}</li>
+</c:forEach>
+</ol>
 
 
 </body>

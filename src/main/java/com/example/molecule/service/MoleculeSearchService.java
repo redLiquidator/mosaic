@@ -58,7 +58,7 @@ public class MoleculeSearchService {
 		map.put("molecules", list);
 		map.put("paging", paging);
 		
-		return map;
+		return map;	
 	}
 	
 	
