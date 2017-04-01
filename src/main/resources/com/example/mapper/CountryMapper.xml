@@ -18,7 +18,7 @@
 <result property="headOfState" column="country_head_of_state"/>
 <result property="capital" column="country_capital"/>
 <result property="code2" column="country_code2"/>
-<collection property="cities" ofType="com.example.domain.City">
+<collection property="citys" ofType="com.example.domain.City">
 <id property="id" column="city_id"/>
 <result property="name" column="city_name"/>
 <result property="countryCode" column="city_country_code"/>
@@ -55,7 +55,7 @@ where c1.code='KOR'
 
 </select>
 <resultMap type="com.example.domain.Country" id="countryWithCity2">
-	<collection property="cities" column="{a=COUNTRY_CODE}"  select="selectCitiesByFormula"/>
+	<collection property="citys" column="{a=COUNTRY_CODE}"  select="selectCitiesByCode"/>
 </resultMap>
 
 

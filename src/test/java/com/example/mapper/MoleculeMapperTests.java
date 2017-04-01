@@ -21,12 +21,12 @@ public class MoleculeMapperTests {
 	MoleculeMapper mapper;
 	
 	
-	@Test
+	//@Test
 	public void test00_confirmMapper() {
 		System.out.println("mapper=" + mapper);
 	}
 	
-	@Test
+	//@Test
 	public void test00_selectTotalCount() {
 		System.out.println("totalCount=" + mapper.selectTotalCount());
 	}
@@ -49,7 +49,7 @@ public class MoleculeMapperTests {
 		
 	}
 	
-	@Test
+	//@Test
 	public void test02_selectPage() {
 		Pagination paging = new Pagination();
 		paging.setTotalItem(mapper.selectTotalCount());
@@ -61,26 +61,26 @@ public class MoleculeMapperTests {
 		
 	}
 	
-	@Test
+	//@Test
 	public void test02_selectPageWithMass() {
 		
 	}
 	
-	@Test
+	//@Test
 	public void test03_selectByFormula() {
 		Molecule molecule = mapper.selectByFormula("C3H6O");
 		
 		System.out.println("molecule=" + molecule);
 	}
 	
-	@Test
+	//@Test
 	public void test03_selectByFormulaWithMass() {
 		Molecule molecule = mapper.selectByFormulaWithMass("C3H6O");
 		
 		System.out.println("molecule=" + molecule);
 	}
 	
-	@Test
+	//@Test
 	public void test04_insert() {
 		Molecule molecule = new Molecule();
 		molecule.setName("xxx");
@@ -96,7 +96,7 @@ public class MoleculeMapperTests {
 		System.out.println(mapper.selectByFormula(molecule.getChemicalFormula()));
 	}
 
-	@Test
+	//@Test
 	public void test06_deleteByFormula() {
 		String chemicalFormula = "C3H6O";
 		int cnt = mapper.deleteByFormula(chemicalFormula);

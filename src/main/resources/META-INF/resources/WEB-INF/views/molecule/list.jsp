@@ -9,26 +9,16 @@
 <meta charset="UTF-8">
 <title>list.jsp</title>
 
-<!-- Code Assist -->
-<c:if test="false">
-	<link rel="stylesheet" href="../code_assist/animate.css">
-	<link rel="stylesheet" href="../code_assist/bootstrap.css">
-</c:if>
-
 </head>
 <body>
-<h1>City List1</h1>
-<ol>
-<c:forEach var="molecule" items="${molecules}">
-	<li>${molecule.name}</li>
-</c:forEach>
-</ol>
+<h1>molecule</h1>
 
-<ol>
-<c:forEach var="city" items="${citys}">
-	<li>${city.id} ${city.name}, ${city.population}, ${city.country.name}</li>
+
+<c:forEach var="molecule" items="${molecules}">
+	${molecule.name}${molecule.chemicalFormula}${molecule.density}${molecule.averageMeltingPoint}
+	${molecule.solubilityInWater}${molecule.acidity}${molecule.hazardStatements}${molecule.note}${molecule.mass.molarMass}<br>
 </c:forEach>
-</ol>
+
 
 
 </body>

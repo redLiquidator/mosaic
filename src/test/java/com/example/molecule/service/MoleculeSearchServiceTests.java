@@ -18,13 +18,12 @@ public class MoleculeSearchServiceTests {
 	
 	@Autowired
 	MoleculeSearchService service;
-	
-	@Test
+	//@Test
 	public void test00_confirmService() {
 		System.out.println("service=" + service); 
 	}
 	
-	@Test
+	//@Test
 	public void test01_getList() {
 		List<Molecule> list = service.getList();
 		for (Molecule m : list)
@@ -38,7 +37,7 @@ public class MoleculeSearchServiceTests {
 			System.out.println(m);
 	}
 	
-	@Test
+	//@Test
 	public void test02_getPage() {
 		Map<String, Object> map = service.getPage(1,true);
 		System.out.println(map.get("molecules"));
@@ -46,7 +45,7 @@ public class MoleculeSearchServiceTests {
 		
 	}
 	
-	@Test
+	//@Test
 	public void test02_getPage_withMass() {
 		Map<String, Object> map = service.getPage(1, true);
 		
@@ -57,13 +56,13 @@ public class MoleculeSearchServiceTests {
 		System.out.println(map.get("paging"));
 	}
 	
-	@Test
+	//@Test
 	public void test03_getMoleculeByFormula() {
 		Molecule m = service.getMoleculeByFormula("C3H6O");
 		System.out.println(m);
 	}
 	
-	@Test
+	//@Test
 	public void test03_getMoleculeByFormula_withMass() {
 		Molecule m = service.getMoleculeByFormula("C3H6O", true);
 		System.out.println(m);

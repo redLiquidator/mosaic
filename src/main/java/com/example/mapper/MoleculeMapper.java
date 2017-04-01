@@ -23,6 +23,7 @@ public interface MoleculeMapper {
 	List<Molecule> selectAll();
 	List<Molecule> selectAllWithMass();
 	
+	
 	@Select({
 		"select *                ",
 		"  from molecule             ",

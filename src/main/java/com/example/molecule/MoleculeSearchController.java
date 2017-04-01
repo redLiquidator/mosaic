@@ -28,10 +28,11 @@ public class MoleculeSearchController {
 	
 	@GetMapping("/list")
 	public String getList(Model model) {
-		log.info("getList()");
+		
 		
 		List<Molecule> list = moleculeSearchService.getList(true);
 		model.addAttribute("molecules", list);
+		log.info("getList()");
 		
 		return "molecule/list";
 	}
@@ -50,8 +51,8 @@ public class MoleculeSearchController {
 	public String getItemById(@PathVariable int id, Model model) {
 		log.info("getItem("+ id + ")");
 		
-		Molecule molecule = moleculeSearchService.getMoleculeByName(name, true);
-		model.addAttribute("molecule", molecule);
+//		Molecule molecule = moleculeSearchService.getMoleculeByFormula(chemical_formula, true);
+//		model.addAttribute("molecule", molecule);
 		
 		return "molecule/item";
 	}

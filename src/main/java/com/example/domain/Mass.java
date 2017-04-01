@@ -1,21 +1,28 @@
 package com.example.domain;
 
-import java.util.List;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Mass {
 	
 	private String chemicalFormula;
 	private Double molarMass;
-	private List<Mass> masses;
 	
-	
-	
-	public List<Mass> getMasses() {
-		return masses;
+	@Override
+	public String toString() {
+		String str= null;
+		
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			str = mapper.writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return str;
 	}
-	public void setMasses(List<Mass> masses) {
-		this.masses = masses;
-	}
+
+	
 	public String getChemicalFormula() {
 		return chemicalFormula;
 	}
@@ -28,6 +35,11 @@ public class Mass {
 	public void setMolarMass(Double molarMass) {
 		this.molarMass = molarMass;
 	}
+
+	
+	
+	
+	
 	
 	
 	

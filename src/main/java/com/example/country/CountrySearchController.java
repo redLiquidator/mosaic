@@ -30,6 +30,7 @@ public class CountrySearchController {
 		
 		List<Country> list = countrySearchService.getList(); 
 		model.addAttribute("list", list);
+		log.info("getLLLLLLLList()"+list);
 		
 		return "country/list";
 	}
