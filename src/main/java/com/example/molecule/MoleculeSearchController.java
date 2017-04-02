@@ -44,15 +44,15 @@ public class MoleculeSearchController {
 		Map<String, Object> page = moleculeSearchService.getPage(pageNo);
 		model.addAttribute("page", page);
 		
-		return "city/page";
+		return "molecule/page";
 	}
 	
-	@GetMapping("/item/{id}")
-	public String getItemById(@PathVariable int id, Model model) {
-		log.info("getItem("+ id + ")");
+	@GetMapping("/item/{chemicalFormula}")
+	public String getItemById(@PathVariable String chemicalFormula, Model model) {
+		log.info("getItem("+ chemicalFormula + ")");
 		
-//		Molecule molecule = moleculeSearchService.getMoleculeByFormula(chemical_formula, true);
-//		model.addAttribute("molecule", molecule);
+		Molecule molecule = moleculeSearchService.getMoleculeByFormula(chemicalFormula, true);
+		model.addAttribute("molecule", molecule);
 		
 		return "molecule/item";
 	}

@@ -65,9 +65,9 @@
 		   mo.note as note,
 		   ma.chemical_formula as chemical_formula,
 		   ma.molar_mass as molar_mass
-	  from country mo left outer join city mass ma
+	  from molecule mo left outer join mass ma
 	    on mo.chemical_formula = ma.chemical_formula
-	 where mo.name = #{name} 
+ 	 where mo.chemical_formula = #{chemicalFormula} 
 
 </select>
 </mapper>

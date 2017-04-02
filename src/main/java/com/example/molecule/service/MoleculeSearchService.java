@@ -32,11 +32,9 @@ public class MoleculeSearchService {
 		log.info("getList(" + withMass + ")");
 		List<Molecule> list=null;
 		if (withMass)
-			list = moleculeMapper.selectAllWithMass();
-		    System.err.println("aaaaaaaaaaaaa");
-		    
-		//else
-		//	list = moleculeMapper.selectAll();
+			list = moleculeMapper.selectAllWithMass();		    
+		else
+			list = moleculeMapper.selectAll();
 		
 		return list;
 	}
