@@ -23,6 +23,8 @@ import com.example.city.service.CitySearchService;
 import com.example.domain.City;
 import com.example.exception.NotFoundRuntimeException;
 import com.example.form.CityForm;
+import com.example.form.MoleculeForm;
+import com.example.molecule.service.MoleculeRegisterService;
 import com.example.molecule.service.MoleculeSearchService;
 
 @Controller
@@ -33,35 +35,35 @@ public class MoleculeRegisterController {
 	@Autowired
 	MoleculeSearchService moleculeSearchService;
 	
-	//@Autowired
-	//MoleculeRegisterService moleculeRegisterService;
+	@Autowired
+	MoleculeRegisterService moleculeRegisterService;
 	
-	@GetMapping("/register")
-	public String registerform(CityForm cityForm){
-		
-		log.info("registerForm()");
-		return "molecule/registerForm";
-	}
-
-//	@PostMapping("/register")
-//	public String register(@Valid CityForm cityForm,BindingResult errors){
-//			log.info("register(" + cityForm + ")");
-//			System.out.println(cityForm);
+//	@GetMapping("/register")
+//	public String registerform(CityForm cityForm){
 //		
-//		if(errors.hasErrors()){
-//			System.out.println(errors);
-//			return "city/registerForm";
-//		}
-//		
-//		cityRegisterService.register(cityForm, errors);
-//		if(errors.hasErrors()){
-//			System.out.println(errors);
-//			return "city/registerForm";
-//		}
-//		
-//		
-//		return "redirect:/city/registerSuccess/" + cityForm.getId();
+//		log.info("registerForm()");
+//		return "molecule/registerForm";
 //	}
+
+	@PostMapping("/register")
+	public String register(@Valid MoleculeForm moleculeForm,BindingResult errors){
+			log.info("register(" + moleculeForm + ")");
+			System.out.println(moleculeForm);
+		
+		if(errors.hasErrors()){
+			System.out.println(errors);
+			return "molecule/moleculeForm";
+		}
+		
+		moleculeRegisterService.register(moleculeForm, errors);
+		if(errors.hasErrors()){
+			System.out.println(errors);
+			return "molecule/moleculeForm";
+		}
+		
+		
+		return "redirect:/city/registerSuccess/" + cityForm.getId();
+	}
 //	
 //	@GetMapping("/registerSuccess/{id}")
 //	public String registerSuccess(@PathVariable int id, Model model){
